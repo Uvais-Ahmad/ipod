@@ -6,10 +6,6 @@ class Ipod extends React.Component {
     // constructor(){
     //     super();
     // }
-
-    rotateWheel = ()=>{
-        var containerElement = document.getElementById('wheel-container');
-    }
     
     render(){
         return(

@@ -1,17 +1,28 @@
 import React from 'react';
+import ZingTouch from 'zingtouch';
 
 class Wheel extends React.Component{
     constructor(){
         super();
     }
 
+    rotateWheel = ()=>{
+        var containerElement = document.getElementById('wheel-container');
+        var activeRegion = ZingTouch.Region(containerElement);
+        var childElement = document.getElementById('inner-container');
+        activeRegion.bind(childElement, 'rotate', function(event){
+            //Perform Operations
+            console.log("rotate");
+        });
+    }
+
     render = () => {
         return(
             <div style = {styles.wheelContainer} id='wheel-container'>
-                <div id='inner-container' style = {styles.wheel}>
+                <div id='inner-container' style = {styles.wheel} onMouseOver={this.rotateWheel}>
                     <div style = {styles.buttonContainer}>
                         <div style = {styles.menuButton}>
-                            <p style={{fontWeight : 'bolder'}}>Menu</p>
+                            <p>Menu</p>
                         </div>
 
                     </div>
