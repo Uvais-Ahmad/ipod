@@ -1,4 +1,5 @@
 import React from "react";
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class Home extends React.Component{
     constructor(){
@@ -11,15 +12,17 @@ class Home extends React.Component{
 
             <div style={styles.homeScreen} id='home-screen'>
                 <div style={styles.menuList} id='menu-list'>
-                    <h2 >IPOD.JS</h2>
-                    <ul >
-                        <li>Wallpaper</li>
-                        <li>Music</li>
-                        <li>Games</li>
-                        <li>Settings</li>
-                    </ul>
+                    <h2 style={{textAlign :'center',fontFamily :'sen serif'}}>IPOD.JS</h2>
+                    <ListGroup>
+                        <ListGroup.Item style={{border:'0'}} active>Wallpapers</ListGroup.Item>
+                        <ListGroup.Item style={{border:'0'}}>Music</ListGroup.Item>
+                        <ListGroup.Item style={{border:'0'}}>Games</ListGroup.Item>
+                        <ListGroup.Item style={{border:'0'}}>Settings</ListGroup.Item>
+                    </ListGroup>
                 </div>
-                <div style={styles.imageContainer}  id='image-container'></div>
+                <div style={styles.imageContainer} id='image-container'>
+                    <img style={{height:'100%' , width:'100%'}} src="https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                </div>
             </div>
         );
     }
@@ -33,12 +36,12 @@ const styles = {
         flexDirecton : 'row'
     },
     menuList : {
-        border:'1px solid black',
+        // border:'1px solid black',
         height : '100%',
         width : '50%'
     },
     imageContainer : {
-        border:'1px solid black',
+        // border:'1px solid black',
         height : '100%',
         width : '50%'
     }
