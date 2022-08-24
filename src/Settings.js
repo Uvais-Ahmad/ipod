@@ -11,7 +11,7 @@ class Settings extends React.Component{
         let self = this;
         return(
             <div style={styles.settings} >
-                <img style={styles.image} src="https://image.flaticon.com/icons/svg/929/929435.svg" />
+                <img style={styles.image} src="https://cdn-icons-png.flaticon.com/128/3524/3524659.png" />
             </div>
         );
     }

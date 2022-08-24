@@ -110,15 +110,15 @@ class Ipod extends React.Component {
                     <div id='inner-container' style = {styles.wheel} onMouseOver={this.rotateWheel}>
                         <div style = {styles.buttonContainer}>
                             <div style = {styles.menuButton}>
-                                <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://image.flaticon.com/icons/svg/3039/3039357.svg" />
+                                <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/2089/2089792.png" />
                             </div>
 
                         </div>
                         <div style = {styles.buttonContainer}>
                             <div style = {styles.middleButtons}>
-                                <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/512/3787/premium/3787347.png?token=exp=1660926733~hmac=ef81a325a179c94ca1a084d153798795" />
+                                <img style = {styles.image} src="https://cdn-icons-png.flaticon.com/512/8286/8286954.png" />
                                 <div onClick={this.changePage} style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
-                                <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/512/3787/premium/3787373.png?token=exp=1660926515~hmac=280d50962a58a5198f228a3e498cc9ca" />
+                                <img style = {styles.image} src="https://cdn-icons-png.flaticon.com/512/4210/4210646.png" />
                             </div>
                         </div>
                         <div style = {styles.buttonContainer}>
