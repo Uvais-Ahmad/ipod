@@ -6,13 +6,11 @@ class Ipod extends React.Component {
     constructor(){
         super();
         this.state = {
-            activeItem : 'Wallpapers'
+            activeItem : 'Wallpapers',
+            activePage : 'Home'
         }
     }
 
-    componentDidUpdate(){
-        console.log('Updated');
-    }
 
     rotateWheel = ()=>{
         let currentAngle=15;
@@ -88,23 +86,38 @@ class Ipod extends React.Component {
             }
         });
     }
+
+    changePage = () => {
+
+        this.setState({
+            activeItem : this.state.activeItem,
+            activePage : this.state.activeItem
+        })
+    }
+
+    changePageToHomeScreen = () => {
+        this.setState({
+            activeItem : 'Wallpapers',
+            activePage : 'Home'
+        })
+    }
     
     render(){
         return(
             <div style={styles.ipodContainer}>
-                <Screen activeItem={this.state.activeItem}/>
+                < Screen activeItem={this.state.activeItem}  activePage={this.state.activePage} />
                 <div style = {styles.wheelContainer} id='wheel-container'>
                     <div id='inner-container' style = {styles.wheel} onMouseOver={this.rotateWheel}>
                         <div style = {styles.buttonContainer}>
                             <div style = {styles.menuButton}>
-                                <p>Menu</p>
+                                <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://image.flaticon.com/icons/svg/3039/3039357.svg" />
                             </div>
 
                         </div>
                         <div style = {styles.buttonContainer}>
                             <div style = {styles.middleButtons}>
                                 <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/512/3787/premium/3787347.png?token=exp=1660926733~hmac=ef81a325a179c94ca1a084d153798795" />
-                                <div style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
+                                <div onClick={this.changePage} style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
                                 <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/512/3787/premium/3787373.png?token=exp=1660926515~hmac=280d50962a58a5198f228a3e498cc9ca" />
                             </div>
                         </div>
