@@ -1,17 +1,15 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
 
-class Settings extends React.Component{
+class Games extends React.Component{
 
     constructor(){
         super();
     }
 
     render(){
-        let self = this;
         return(
             <div style={styles.settings} >
-                <img style={styles.image} src="https://image.flaticon.com/icons/svg/929/929435.svg" />
+                <img style={styles.image} src="https://media2.giphy.com/media/uYe2emzPgDfj2/giphy.webp?cid=ecf05e47fa455dac230de80fff0206077175b008801bc689&rid=giphy.webp" />
             </div>
         );
     }
@@ -27,10 +25,11 @@ const styles = {
         justifyContent : 'center'
     },
     image : {
-        width:'75%',
-        height:'75%',
+        width:'100%',
+        height:'100%',
         alignSelf : 'center'
     }
 }
 
-export default Settings; 
+
+export default Games; 

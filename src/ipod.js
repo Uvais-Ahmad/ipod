@@ -15,14 +15,14 @@ class Ipod extends React.Component {
     rotateWheel = ()=>{
         let currentAngle=15;
         let containerElement = document.getElementById('wheel-container');
-        let activeRegion = ZingTouch.Region(containerElement);
+        let activeRegion = new ZingTouch.Region(containerElement);
         let childElement = document.getElementById('inner-container');
         let change = 0;
         let self = this;
         activeRegion.bind(childElement, 'rotate', function(event){
             //Perform Operations
             var newAngle = event.detail.distanceFromLast
-            console.log(currentAngle , newAngle);
+            console.log(newAngle);
             
             //Distance from lastPoisiton = newAngle 
             //if newAngle -ve means gesture is anticlockwise otherwise clockwise
@@ -97,7 +97,7 @@ class Ipod extends React.Component {
 
     changePageToHomeScreen = () => {
         this.setState({
-            activeItem : 'Wallpapers',
+            activeItem : this.state.activeItem,
             activePage : 'Home'
         })
     }

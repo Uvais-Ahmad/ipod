@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './Home'
 import Settings from './Settings';
+import Games from './Games';
 
 class Screen extends React.Component{
     constructor(){
@@ -11,9 +12,9 @@ class Screen extends React.Component{
             <div style={styles.screen} id='screen-container'>
                 {this.props.activePage==='Home'?<Home activeItem={this.props.activeItem}/> : null}
                 {this.props.activePage==='Wallpapers'?<Home activeItem={this.props.activeItem}/> : null}
-                {this.props.activePage==='Games'?<Home activeItem={this.props.activeItem}/> : null}
-                {this.props.activePage==='Music'?<Home activeItem={this.props.activeItem}/> : null}
-                {this.props.activePage==='Settings'?<Settings /> : null}
+                {this.props.activePage==='Games'?< Games /> : null}
+                {this.props.activePage==='Music'?< Home activeItem={this.props.activeItem}/> : null}
+                {this.props.activePage==='Settings'?< Settings /> : null}
             </div>
         );
     }
