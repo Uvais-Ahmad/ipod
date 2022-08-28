@@ -29,7 +29,7 @@ class Home extends React.Component{
                     </ListGroup>
                 </div>
                 <div style={styles.imageContainer} id='image-container'>
-                    <img style={{height:'100%' , width:'100%'}} src="https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                    <img id="mainimag" style={{height:'100%' , width:'100%'}} src="https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
                 </div>
             </div>
         );
@@ -50,6 +50,7 @@ const styles = {
     },
     imageContainer : {
         // border:'1px solid black',
+    
         height : '100%',
         width : '50%',
         backgroundImage : 'url("https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',

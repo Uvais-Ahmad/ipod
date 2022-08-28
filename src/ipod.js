@@ -184,7 +184,8 @@ const styles = {
         flexDirection : 'row',
         flexWrap : 'wrap',
         justifyContent : 'center',
-        borderRadius : '24px'
+        borderRadius : '24px',
+        boxShadow: 'inset 4px 5px 10px 5px grey'
 
     },
     wheelContainer : {
