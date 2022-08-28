@@ -5,6 +5,7 @@ import Music from './Music';
 import Settings from './Settings';
 import Games from './Games';
 import MyMusic from './MyMusic';
+import Artists from './Artists';
 
 class Screen extends React.Component{
     constructor(){
@@ -19,6 +20,7 @@ class Screen extends React.Component{
                 {this.props.activePage==='Music'?<Music activeItem={this.props.activeItem}/> : null}
                 {this.props.activePage==='Settings'?< Settings /> : null}
                 {this.props.activePage==='MyMusic'?<MyMusic /> : null}
+                {this.props.activePage==='Artists'?<Artists /> : null}
             </div>
         );
     }
