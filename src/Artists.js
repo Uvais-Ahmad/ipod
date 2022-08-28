@@ -1,4 +1,5 @@
 import React from 'react';
+import pic from './assets/images/mypic.jpg'
 
 class Artists extends React.Component{
 
@@ -12,13 +13,17 @@ class Artists extends React.Component{
             <div style={styles.artistsContainer}>
 
                 <div style={styles.info}>
-                    <div style={styles.imageContainer}>
-                    </div>
+                
+                    
+                    <img alt='profile' src={pic} style = {styles.pic} />
+                    
+
+                    
 
                     <div style={styles.subInfo}>
-                        <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://image.flaticon.com/icons/svg/953/953909.svg" /></span></h4>
+                        <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://cdn-icons-png.flaticon.com/128/1057/1057237.png" /></span></h4>
                         <p style={{marginBottom:'0'}}> React Project</p>
-                        <p>Made by : Sejal Gupta</p>
+                        <p>Made by : Uvais Ahmad</p>
                     </div>
 
                 </div>
