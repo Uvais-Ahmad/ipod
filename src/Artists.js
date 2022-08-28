@@ -1,5 +1,5 @@
 import React from 'react';
-import pic from './assets/images/mypic.jpg'
+import Artistpic from './assets/images/mypic.jpg'
 
 class Artists extends React.Component{
 
@@ -15,11 +15,9 @@ class Artists extends React.Component{
                 <div style={styles.info}>
                 
                     
-                    <img alt='profile' src={pic} style = {styles.pic} />
-                    
-
-                    
-
+                    <div style={styles.imageContainer}>
+                    </div>
+                
                     <div style={styles.subInfo}>
                         <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://cdn-icons-png.flaticon.com/128/1057/1057237.png" /></span></h4>
                         <p style={{marginBottom:'0'}}> React Project</p>
@@ -48,8 +46,10 @@ const styles = {
         height : '65%',
         width : '35%',
         borderRadius : '50%',
-        backgroundImage : `url("https://images.news18.com/ibnlive/uploads/2019/07/Shawn-Mendes-Camila-Cabello.jpg")`,
-        alignSelf : 'center'
+        backgroundImage : `url(${Artistpic})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        alignSelf : 'center',
     },
     image : {
         width: '2rem',
