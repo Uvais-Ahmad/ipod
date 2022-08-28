@@ -7,7 +7,8 @@ class Ipod extends React.Component {
         super();
         this.state = {
             activeItem : 'Wallpapers',
-            activePage : 'Home'
+            activePage : 'Home',
+            enter : 0
         }
     }
 
@@ -19,95 +20,98 @@ class Ipod extends React.Component {
         let childElement = document.getElementById('inner-container');
         let change = 0;
         let self = this;
-        activeRegion.bind(childElement, 'rotate', function(event){
-            //Perform Operations
-            var newAngle = event.detail.distanceFromLast
-            console.log(newAngle);
+        self.state.enter = self.state.enter + 1;
+
+        if(self.state.enter < 2){
+            activeRegion.bind(childElement, 'rotate', function(event){
+                //Perform Operations
+
+                var newAngle = event.detail.distanceFromLast;
+                console.log(newAngle);
+
+                if(newAngle < 0){
+                    console.log(change);
+                    change++;
+                    if(change === 15){
+                        console.log("change state");
+                        change = 0;
+                        if(self.state.activePage === 'Home'){
+                            if(self.state.activeItem === 'Wallpapers'){
+                                self.setState({
+                                    activeItem : "Music"
+                                })
+                            }else if(self.state.activeItem === 'Music'){
+                                self.setState({
+                                    activeItem : "Games"
+                                })
+                            }else if(self.state.activeItem === 'Games'){
+                                self.setState({
+                                    activeItem : "Settings"
+                                })
+                            }else if(self.state.activeItem === 'Settings'){
+                                self.setState({
+                                    activeItem : "Wallpapers"
+                                })
+                            }
+                        }else if(self.state.activePage === 'Music'){
+                            if(self.state.activeItem === 'MyMusic'){
+                                self.setState({
+                                    activeItem : "Artists"
+                                })
+                            }else if(self.state.activeItem === 'Artists'){
+                                self.setState({
+                                    activeItem : "MyMusic"
+                                })
+                            }
+                        }
+                    }
+                }else{
+                    console.log(change);
+                    change++;
+                    if(change === 15){
+                        console.log("change state");
+                        change = 0;
+                        if(self.state.activePage == 'Home'){
+                            if(self.state.activeItem === 'Wallpapers'){
+                                self.setState({
+                                    activeItem : "Settings"
+                                })
+                            }else if(self.state.activeItem === 'Music'){
+                                self.setState({
+                                    activeItem : "Wallpapers"
+                                })
+                            }else if(self.state.activeItem === 'Games'){
+                                self.setState({
+                                    activeItem : "Music"
+                                })
+                            }else if(self.state.activeItem === 'Settings'){
+                                self.setState({
+                                    activeItem : "Games"
+                                })
+                            }
+                        }else if(self.state.activePage == 'Music'){
+                            if(self.state.activeItem === 'MyMusic'){
+                                self.setState({
+                                    activeItem : "Artists"
+                                })
+                            }else if(self.state.activeItem === 'Artists'){
+                                self.setState({
+                                    activeItem : "MyMusic"
+                                })
+                            }
+                        }
+                    }
+                }
             
-            //Distance from lastPoisiton = newAngle 
-            //if newAngle -ve means gesture is anticlockwise otherwise clockwise
-            //for Anticlockwise
-            if(newAngle < 0){
-                console.log("Change in Anti",change);
-                change++;
-                console.log(self.state);
-                if(change === 15 ){
-                    console.log('Now Chnage the state Anticlockwise');
-                    change=0;
+            });
+        }else{
+            console.log("Not allowed to enter");
+        }
 
-                    //Now change activeItem top to bottm
-                    if(self.state.activePage === 'Home'){
-                        if(self.state.activeItem === 'Wallpapers'){
-                            self.setState({
-                                activeItem : "Music"
-                            })
-                        }else if(self.state.activeItem === 'Music'){
-                            self.setState({
-                                activeItem : "Games"
-                            })
-                        }else if(self.state.activeItem === 'Games'){
-                            self.setState({
-                                activeItem : "Settings"
-                            })
-                        }else if(self.state.activeItem === 'Settings'){
-                            self.setState({
-                                activeItem : "Wallpapers"
-                            })
-                        }
-                    }else if(self.state.activePage === 'Music'){
-                        if(self.state.activeItem === 'MyMusic'){
-                            self.setState({
-                                activeItem : "Artists"
-                            })
-                        }else if(self.state.activeItem === 'Artists'){
-                            self.setState({
-                                activeItem : "MyMusic"
-                            })
-                        }
-                    }
-                }
-            }
-            //for Clockwise where newAngle > 0
-            else{
-                console.log("Change in Clock",change);
-                change++;
-                if(change === 15 ){
-                    console.log('Now Chnage the state clockwise');
-                    change=0;
-
-                     //Now change activeItem bottm to top
-                    if(self.state.activePage == 'Home'){
-                        if(self.state.activeItem === 'Wallpapers'){
-                            self.setState({
-                                activeItem : "Settings"
-                            })
-                        }else if(self.state.activeItem === 'Music'){
-                            self.setState({
-                                activeItem : "Wallpapers"
-                            })
-                        }else if(self.state.activeItem === 'Games'){
-                            self.setState({
-                                activeItem : "Music"
-                            })
-                        }else if(self.state.activeItem === 'Settings'){
-                            self.setState({
-                                activeItem : "Games"
-                            })
-                        }
-                    }else if(self.state.activePage == 'Music'){
-                        if(self.state.activeItem === 'MyMusic'){
-                            self.setState({
-                                activeItem : "Artists"
-                            })
-                        }else if(self.state.activeItem === 'Artists'){
-                            self.setState({
-                                activeItem : "MyMusic"
-                            })
-                        }
-                    }
-                }
-            }
-        })
+        
+            
+            
+        
     }
     changePage = () => {
 
@@ -125,14 +129,14 @@ class Ipod extends React.Component {
     }
 
     changePageToHomeScreen = () => {
-        if(this.state.activePage === 'Music'){
+        if(this.state.activePage === 'Music' || this.state.activePage === 'Wallpapers' || this.state.activePage === 'Settings' || this.state.activePage === 'Games'){
             this.setState({
-                activeItem : 'Music',
+                activeItem : this.state.activeItem,
                 activePage : 'Home'
             })
         }else{
             this.setState({
-                activeItem : this.state.activeItem,
+                activeItem : 'Music',
                 activePage : 'Home'
             })
         }
